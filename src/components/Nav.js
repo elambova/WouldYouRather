@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { Container, Menu, Image } from "semantic-ui-react";
 import { setAuthUser } from "../actions/authUser";
@@ -10,8 +10,8 @@ class Nav extends Component {
   handleLogout = (e) => {
     e.preventDefault();
     this.props.setAuthUser(null);
+    window.history.replaceState({ page: "login" }, "Login", "/");
   };
-
   handleLoad = (e) => this.setState({ activeItem: "" });
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -77,4 +77,4 @@ function mapStateToProps({ users, authUser }) {
       .filter((key) => (key.id === authUser ? users : null)),
   };
 }
-export default connect(mapStateToProps, { setAuthUser })(Nav);
+export default withRouter(connect(mapStateToProps, { setAuthUser })(Nav));
