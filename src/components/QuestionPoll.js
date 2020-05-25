@@ -25,22 +25,22 @@ class QuestionPoll extends Component {
       value: "",
       toResult: true,
     }));
-    console.log(id);
   };
 
   render() {
     const { value, toResult } = this.state;
-    if (toResult === true) {
-      return <Redirect to="/question_result" />;
-    }
 
     const id = this.props.location.pathname.slice(10);
     const { questions, users } = this.props;
+    const questionResult = `/question_result/${id}`;
 
-    const disabled = value === "" ? true : false;
-    if (questions[id] === undefined) {
+    if (toResult === true) {
+      return <Redirect to={questionResult} />;
+    } else if (questions[id] === undefined) {
       return <Redirect to="/404" />;
     }
+
+    const disabled = value === "" ? true : false;
 
     const { optionOne, optionTwo, author } = questions[id];
     const { name, avatarURL } = users[questions[id].author];
