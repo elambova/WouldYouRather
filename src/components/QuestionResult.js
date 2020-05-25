@@ -11,6 +11,9 @@ class QuestionResult extends Component {
     const { name, avatarURL } = users[questions[id].author];
     const allVotes = optionOne.votes.concat(optionTwo.votes);
 
+    const optionOneVote = optionOne.votes.includes(authUser);
+    const optionTwoVote = optionTwo.votes.includes(authUser);
+
     return (
       <div className="question border">
         <Header as="h2">Asked by {name}</Header>
@@ -21,7 +24,7 @@ class QuestionResult extends Component {
           <div className="description">
             <Header as="h3">Results:</Header>
             <div className="border padding">
-              {optionOne.votes.includes(authUser) ? (
+              {optionOneVote ? (
                 <Label as="a" color="teal" ribbon="right">
                   Your Vote
                 </Label>
@@ -34,14 +37,15 @@ class QuestionResult extends Component {
                   (optionOne.votes.length / allVotes.length) *
                   100
                 ).toFixed(2)}
+                color={optionOneVote ? "teal" : "grey"}
               />
-              <p className="votes">
-                {optionOne.votes.length} out of {allVotes.length} votes
-              </p>
             </div>
+            <p className="votes">
+              {optionOne.votes.length} out of {allVotes.length} votes
+            </p>
             <Divider />
             <div className="border padding">
-              {optionTwo.votes.includes(authUser) ? (
+              {optionTwoVote ? (
                 <Label as="a" color="teal" ribbon="right">
                   Your Vote
                 </Label>
@@ -54,11 +58,12 @@ class QuestionResult extends Component {
                   (optionTwo.votes.length / allVotes.length) *
                   100
                 ).toFixed(2)}
+                color={optionTwoVote ? "teal" : "grey"}
               />
-              <p className="votes">
-                {optionTwo.votes.length} out of {allVotes.length} votes
-              </p>
             </div>
+            <p className="votes">
+              {optionTwo.votes.length} out of {allVotes.length} votes
+            </p>
           </div>
         </div>
       </div>
