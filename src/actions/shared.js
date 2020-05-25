@@ -7,8 +7,7 @@ import { receiveUsers, newQuestionUser } from "./users";
 import { receiveQuestions, addQuestion, addVote } from "./questions";
 import { setAuthUser } from "./authUser";
 
-// const AUTH_ID = null;
-const AUTH_ID = "tylermcginnis";
+const AUTH_ID = null;
 
 export function handleInitialData() {
   return (dispatch) => {
