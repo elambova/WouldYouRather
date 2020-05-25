@@ -19,15 +19,13 @@ class AnsweredQuestionList extends Component {
   }
 }
 
-function mapStateToProps({ questions, authUser}) {
-  console.log(questions);
+function mapStateToProps({ questions, authUser }) {
   return {
     authUser,
     questionId: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     ),
     questions,
-    
   };
 }
 
