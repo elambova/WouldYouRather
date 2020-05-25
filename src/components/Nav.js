@@ -6,11 +6,13 @@ import { setAuthUser } from "../actions/authUser";
 
 class Nav extends Component {
   state = { activeItem: "home" };
-  
+
   handleLogout = (e) => {
     e.preventDefault();
     this.props.setAuthUser(null);
   };
+
+  handleLoad = (e) => this.setState({ activeItem: "" });
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -19,7 +21,7 @@ class Nav extends Component {
     const { user } = this.props;
 
     return (
-      <Menu pointing secondary color="teal">
+      <Menu pointing secondary color="teal" onLoad={this.handleLoad}>
         <Container>
           <Menu.Item
             name="home"
