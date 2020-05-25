@@ -1,68 +1,159 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Would you rather App Project
 
-## Available Scripts
+This project is part of Udacity React Nanodegree Program. In it except React and Redux is used Udacity \_DATA file who contain all small part of information.
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+In this project are used:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- HTML
+- CSS
+- VanillaJS
+- NodeJS
+- React
+- Redux
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For create is using `create-react-app` (more information can find in [Create React App](https://github.com/facebookincubator/create-react-app)).
 
-### `npm test`
+### Getting started
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To view and test the project need to download in .zip format or clone it repository.
+The next step is to navigate (in the terminal) to the corresponding directory in which it is located and install depedencies with
 
-### `npm run build`
+```
+npm install
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run app need to run
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+and select user from login dropdawn list, walk through the pages of the navigation, click on any of the questions and answer, see how many more people are in your opinion.
 
-### `npm run eject`
+### File structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── public
+│   ├── favicon.ico # React Icon, You may change if you wish.
+│   ├── images # Images folder.
+│   │   ├── avatar # Avatar folder.
+│   │   │   ├── johndoe.png # John Doe avatar image.
+│   │   │   ├── sarahedo.png # Sarah Edo avatar image.
+│   │   │   └── tylermcginnis.png # Tyler Mcginnis avatar image.
+│   │   └── 404.png # Image for NotMatch page.
+│   └── index.html
+└── src
+    ├── actions # acrions folder contain all need actions.
+    │   ├── authUser.js # authUser.js is action file for autheduser.
+    │   ├── users.js # users.js is action file for users.
+    │   ├── questions.js # questions.js is action file for questions.
+    │   └── shared.js # shared.js is action file for initializes all action files.
+    ├── components # acrions folder contain all need actions.
+    │   ├── AnsweredQuestionList.js # This is list of all answered questions for authed user.
+    │   ├── App.js # This is the root of your app. Contains static HTML right now.
+    │   ├── Home.js # This is component who contain 2 tabs, first is Unanswered questions, second - Answered questions.
+    │   ├── LeaderBoard.js # This component contain the 3 users with best score.
+    │   ├── Login.js # This component contain part of login page.
+    │   ├── LoginForm.js # This component contain login form.
+    │   ├── Nav.js # This is navigation component
+    │   ├── NewQuestion.js # This component contain form for user add question.
+    │   ├── NoMatch.js # This is Not found/Not match component, he will load if in url uset add incorrect path to some page.
+    │   ├── Question.js # This is component who display part of question.
+    │   ├── QuestionPoll.js # This is component who contain form for the question of which user answered.
+    │   ├── QuestionResult.js # This is component is for display result of user vote.
+    │   └── UnasweredQuestionList.js # This is list of all unanswered questions for authed user.
+    ├── middleware # middleware folder contain all need middlewares.
+    │   ├── index.js # He is initial middleware.
+    │   └── logger.js # He is logger middleware.
+    ├── reducers # reducers folder contain all need reducers.
+    │   ├── authUser.js # authUser.js is reducer file for autheduser.
+    │   ├── users.js # users.js is reducer file for users.
+    │   ├── questions.js # questions.js is reducer file for questions.
+    │   └── index.js # index.js is reducer file for initializes all reducers files.
+    ├── utils # utils folder contain data.
+    │   ├── _DATA.js # In _DATA.js file is all initial users and questions.
+    │   ├── api.js # this file is return initial data which the app needs .
+    │   └── helpers.js # this file contain just one function for formating question.
+    ├── index.css # Global styles. You probably won't need to change anything here.
+    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backend Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+He is provide from Udacity React Nanodegree Program. Can be viewed in utils folder, file name is [`_DATA_.js`](src/utils/_DATA_.js). The file itself contains the methods and objects:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Methods:
 
-## Learn More
+- [`_getUsers`](#_getUsers)
+- [`_getQuestions`](#_getQuestions)
+- [`_saveQuestion`](#_saveQuestion)
+- [`_saveQuestionAnswer`](#_saveQuestionAnswer)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `_getUsers`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Method Signature:
 
-### Code Splitting
+```js
+_getUsers();
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Returns a Promise which resolves to a JSON object containing a collection of users objects.
 
-### Analyzing the Bundle Size
+### `_getQuestions`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Method Signature:
 
-### Making a Progressive Web App
+```js
+_getQuestions();
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Returns a Promise which resolves to a JSON object containing a collection of questions objects.
 
-### Advanced Configuration
+### `_saveQuestion`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Method Signature:
 
-### Deployment
+```js
+_saveQuestion(question);
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- question: `<Object>`
+- Returns a Promise which resolves to a JSON object containing a collection of question object.
 
-### `npm run build` fails to minify
+### `_saveQuestionAnswer`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Method Signature:
+
+```js
+_saveQuestionAnswer({ authUser, qi, answer });
+```
+
+- authUser: `<String>`
+- qid: `<String>`
+- answer: `<Object>`
+- Returns a Promise which resolves to a JSON object containing a collection of question object with authUser answered.
+
+Objects:
+
+- [`users`](#users)
+- [`questions`](#questions)
+
+Method Signature:
+
+```js
+users;
+```
+
+- Returns users objects.
+
+Method Signature:
+
+```js
+questions;
+```
+
+- Returns questions objects.
