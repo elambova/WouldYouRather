@@ -34,14 +34,11 @@ class App extends Component {
                       <Route exact path="/add" component={NewQuestion} />
                       <Route
                         exact
-                        path="/leader_board"
+                        path="/leaderboard"
                         component={LeaderBoard}
                       />
                       <Route path="/question/:id" component={QuestionPoll} />
-                      <Route
-                        path="/question_result/:id"
-                        component={QuestionResult}
-                      />
+                      <Route path="/questions/:id" component={QuestionResult} />
                       <Route component={NoMatch} />
                     </Switch>
                   </Grid.Column>
