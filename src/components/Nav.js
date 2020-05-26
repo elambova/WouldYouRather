@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, withRouter, Redirect } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Container, Menu, Image } from "semantic-ui-react";
 import { setAuthUser } from "../actions/authUser";
@@ -39,11 +39,11 @@ class Nav extends Component {
             to="/add"
           />
           <Menu.Item
-            name="leader_board"
-            active={activeItem === "leader_board"}
+            name="leaderboard"
+            active={activeItem === "leaderboard"}
             onClick={this.handleItemClick}
             as={NavLink}
-            to="/leader_board"
+            to="/leaderboard"
           />
           <Menu.Menu position="right">
             <Menu.Item className="welcome-user">
