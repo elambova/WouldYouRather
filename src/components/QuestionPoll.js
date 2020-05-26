@@ -32,7 +32,7 @@ class QuestionPoll extends Component {
 
     const id = this.props.location.pathname.slice(10);
     const { questions, users } = this.props;
-    const questionResult = `/question_result/${id}`;
+    const questionResult = `/questions/${id}`;
 
     if (toResult === true) {
       return <Redirect to={questionResult} />;
