@@ -17,7 +17,7 @@ class Question extends Component {
         {optionOneVote || optionTwoVote ? (
           <Link
             key={id}
-            to={`/question_result/${id}`}
+            to={`/questions/${id}`}
             id={id}
             className="link-question"
           >
