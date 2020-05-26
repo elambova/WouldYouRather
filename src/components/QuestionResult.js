@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Header, Image, Progress, Divider, Label } from "semantic-ui-react";
+import { Redirect } from "react-router-dom";
 
 class QuestionResult extends Component {
   render() {
-    const id = this.props.location.pathname.slice(17);
+    const id = this.props.location.pathname.slice(11);
     const { questions, users, authUser } = this.props;
-
+    if (questions[id] === undefined) {
+      return <Redirect to="/404" />;
+    }
     const { optionOne, optionTwo, author } = questions[id];
     const { name, avatarURL } = users[questions[id].author];
     const allVotes = optionOne.votes.concat(optionTwo.votes);
