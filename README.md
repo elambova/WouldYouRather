@@ -2,6 +2,8 @@
 
 This project is part of Udacity React Nanodegree Program. In it except React and Redux is used Udacity \_DATA file who contain all small part of information.
 
+---
+
 ## Introduction
 
 In this project are used:
@@ -14,6 +16,8 @@ In this project are used:
 - Redux
 
 For create is using `create-react-app` (more information can find in [Create React App](https://github.com/facebookincubator/create-react-app)).
+
+---
 
 ### Getting started
 
@@ -31,6 +35,8 @@ npm start
 ```
 
 and select user from login dropdawn list, walk through the pages of the navigation, click on any of the questions and answer, see how many more people are in your opinion.
+
+---
 
 ### File structure
 
@@ -82,7 +88,9 @@ and select user from login dropdawn list, walk through the pages of the navigati
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-## Backend Server
+---
+
+### Backend Server
 
 He is provide from Udacity React Nanodegree Program. Can be viewed in utils folder, file name is [`_DATA_.js`](src/utils/_DATA_.js). The file itself contains the methods and objects:
 
@@ -93,7 +101,7 @@ Methods:
 - [`_saveQuestion`](#_saveQuestion)
 - [`_saveQuestionAnswer`](#_saveQuestionAnswer)
 
-### `_getUsers`
+#### `_getUsers`
 
 Method Signature:
 
@@ -103,7 +111,7 @@ _getUsers();
 
 - Returns a Promise which resolves to a JSON object containing a collection of users objects.
 
-### `_getQuestions`
+#### `_getQuestions`
 
 Method Signature:
 
@@ -113,7 +121,7 @@ _getQuestions();
 
 - Returns a Promise which resolves to a JSON object containing a collection of questions objects.
 
-### `_saveQuestion`
+#### `_saveQuestion`
 
 Method Signature:
 
@@ -124,7 +132,7 @@ _saveQuestion(question);
 - question: `<Object>`
 - Returns a Promise which resolves to a JSON object containing a collection of question object.
 
-### `_saveQuestionAnswer`
+#### `_saveQuestionAnswer`
 
 Method Signature:
 
@@ -157,3 +165,57 @@ questions;
 ```
 
 - Returns questions objects.
+
+---
+
+### Screenshots
+
+---
+
+<div align="center">
+
+#### Login
+
+![Login](public/images/screenshots/login.png)
+
+---
+
+#### Login Load
+
+![Login Load](public/images/screenshots/login-load.png)
+
+---
+
+#### Homepage
+
+![Homepage](public/images/screenshots/home.png)
+
+---
+
+#### New Question
+
+![New Question](public/images/screenshots/new-question.png)
+
+---
+
+#### Poll Question
+
+![Poll Question](public/images/screenshots/poll-question.png)
+
+---
+
+#### Question Vote
+
+![Question Vote](public/images/screenshots/question-vote.png)
+
+---
+
+#### Leader Board
+
+![Leader Board](public/images/screenshots/leader-board.png)
+
+---
+
+#### 404 No Results
+
+![404 No Results](public/images/screenshots/404.png)
